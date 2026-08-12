@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse 
+from django.views import View
 
-def index(request):
-    context = {
-        'app_name': 'Статьи',
-    }
-    return render(request, 'articles/index.html', context)
-
-def about(request):
-    return HttpResponse("about")
+class IndexView(View):
+    def get(self, request):
+        context = {
+            'app_name': 'Статьи',
+        }
+        return render(request, 'articles/index.html', context)
