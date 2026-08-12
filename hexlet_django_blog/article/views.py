@@ -1,9 +1,11 @@
 from django.shortcuts import render
-
-# Create your views here.
-# hexlet_django_blog/article/views.py
-from django.http import HttpResponse
-
+from django.http import HttpResponse 
 
 def index(request):
-    return HttpResponse("article")
+    context = {
+        'app_name': 'Статьи',
+    }
+    return render(request, 'articles/index.html', context)
+
+def about(request):
+    return HttpResponse("about")
